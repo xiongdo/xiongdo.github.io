@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>方位与欧拉角 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本概念在3D引擎当中，一般都有世界坐标系和物体坐标系的概念，且在大多数情况下，它们都是笛卡尔坐标系。其中世界坐标系是唯一不变的空间坐标系，可以用它定位空间中每一个点的位置，一个位置一般描述成一个三维向量。而物体坐标系是跟随物体运动而变化的坐标系，这个坐标系与物体的相对位置完全不发生变化，它与物体做相同的刚体运动。我们知道，刚体运动学当中可以将三维空间中的所有刚体运动变为平移和旋转的复合，所以同样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="方位与欧拉角">
+<meta property="og:url" content="http://yoursite.com/2020/06/15/%E6%96%B9%E4%BD%8D%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基本概念在3D引擎当中，一般都有世界坐标系和物体坐标系的概念，且在大多数情况下，它们都是笛卡尔坐标系。其中世界坐标系是唯一不变的空间坐标系，可以用它定位空间中每一个点的位置，一个位置一般描述成一个三维向量。而物体坐标系是跟随物体运动而变化的坐标系，这个坐标系与物体的相对位置完全不发生变化，它与物体做相同的刚体运动。我们知道，刚体运动学当中可以将三维空间中的所有刚体运动变为平移和旋转的复合，所以同样">
+<meta property="og:locale" content="ch">
+<meta property="og:image" content="http://yoursite.com/2020/06/15/pic/1-1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/15/pic/1-2.webp">
+<meta property="article:published_time" content="2020-06-15T09:16:56.155Z">
+<meta property="article:modified_time" content="2020-06-25T07:27:41.893Z">
+<meta property="article:author" content="xiongdo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/15/pic/1-1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-方位与欧拉角" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/15/%E6%96%B9%E4%BD%8D%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92/" class="article-date">
+  <time datetime="2020-06-15T09:16:56.155Z" itemprop="datePublished">2020-06-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      方位与欧拉角
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>在3D引擎当中，一般都有<strong>世界坐标系</strong>和<strong>物体坐标系</strong>的概念，且在大多数情况下，它们都是<a href="https://zh.wikipedia.org/wiki/%E7%AC%9B%E5%8D%A1%E5%B0%94%E5%9D%90%E6%A0%87%E7%B3%BB" target="_blank" rel="noopener">笛卡尔坐标系</a>。其中世界坐标系是唯一不变的空间坐标系，可以用它定位空间中每一个点的位置，一个位置一般描述成一个三维向量。而物体坐标系是跟随物体运动而变化的坐标系，这个坐标系与物体的相对位置完全不发生变化，它与物体做相同的刚体运动。我们知道，刚体运动学当中可以将三维空间中的所有刚体运动变为平移和旋转的复合，所以同样的，可以将世界坐标系和物体坐标系想象成两个绝对的刚体（这一般没什么问题），他们之间的相对位置变换，也可以看作是平移和旋转的复合。当我们需要描述物体坐标系和世界坐标系之间的关系时，主要就是描述两个坐标系之间发生的平移和旋转，这带来了两个新的概念：</p>
+<ul>
+<li>惯性坐标系：与世界坐标系的各条轴相互平行，但是原点在物体坐标系原点的坐标系。</li>
+<li>方位：用来表示物体对应的惯性坐标系到物体坐标系之间相对位置的概念。</li>
+</ul>
+<p>这两个概念与平移和旋转相互对应，当我们要考虑物体与发生的位移时，可以考虑它所在的惯性坐标系与世界坐标系之间的平移变换，当我们要考虑物体在世界坐标系之间摆放的形态时，就要考虑它的方位。在下文中我们会把惯性坐标系写为xyz，物体坐标系写为XYZ。但是请格外注意，方位与方向是不同的两个概念，方向往往定义为物体坐标系当中的Z轴在惯性坐标系当中的位置。当确定了物体的方向时，我们还不能确定它的方位，因为绕它方向发生旋转时，它的方向并没有发生变化，但是它的方位确实改变了，因为物体坐标系发生了旋转。</p>
+<h1 id="如何描述方位"><a href="#如何描述方位" class="headerlink" title="如何描述方位"></a>如何描述方位</h1><h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><p>要描述方位的话，就是要描述物体坐标系和惯性坐标系之间的关系。有一种很直接的方法就是考虑物体坐标轴三个基向量在惯性坐标系中的表示。假设物体坐标轴的三个基向量为$\mathbf{X}$,$\mathbf{Y}$,$\mathbf{Z}$，它们在惯性坐标系中的坐标分别为$(\mathbf{x_1},\mathbf{y_1},\mathbf{z_1})$,$(\mathbf{x_2},\mathbf{y_2},\mathbf{z_2})$,$(\mathbf{x_3},\mathbf{y_3},\mathbf{z_3})$,则有如下等式：</p>
+<script type="math/tex; mode=display">\mathbf{(X,Y,Z)} = \mathbf{(x,y,z)} \times \begin{pmatrix}
+\mathbf{x_1} & \mathbf{x_2} & \mathbf{x_3} \\
+\mathbf{y_1} & \mathbf{y_2} & \mathbf{y_3} \\
+\mathbf{z_1} & \mathbf{z_2} & \mathbf{z_3} \\
+\end{pmatrix} = \mathbf{(x,y,z)} \mathbf{A}</script><p>因为X,Y,Z和x,y,z都是正交基向量（笛卡尔坐标系）。因此$\mathbf{A}$是一个正交矩阵，且因为大多数3D引擎中的坐标系都是左手系，因此$det(A)=1$，即矩阵是一个旋转矩阵，$\mathbf{A}$矩阵完整的描述了惯性坐标系和物体坐标系之间的关系。用矩阵来描述方位有个显而易见的好处，因为可以用矩阵非常容易地获得物体坐标系中向量在惯性坐标系中的坐标表示，只需要对向量乘上$\mathbf{A}$即可。但是用矩阵来表示方位也存在一些缺点，矩阵$\mathbf{A}$在中的九个数量之间并不是相互独立的，我们用它来表示方位其实存在一定程度的数据冗余。事实上，因为两个坐标系之间都是笛卡尔坐标系要求了$\mathbf{A}$的列向量模长均为1，这需要满足三个方程。另外笛卡尔坐标系还保证了基向量之间两两正交，这需要满足两外三个方程。因此，虽然看上去有9个变量，但是事实上矩阵表示的自由度只有3。因此用矩阵的方式来存储方位事实上浪费了大量的存储空间，另一方面，它也不是那么直观，面对一个矩阵人们很难想象坐标之间的实际变换到底是怎么样的，当然对于计算机来说这点就不重要了。但是由于上述的缺点，人们还是想出了另一种表示方位的方法——欧拉角。</p>
+<h2 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h2><p>在上一节中已经说明了一个描述一个方位其实只需要三个自由度，那么我们可不可以使用一个三元组来完整地描述方位呢？答案是肯定的。欧拉在很早以前就证明了，<strong>三维空间中刚体的旋转矩阵可以由三个基本旋转矩阵复合而成</strong>。那么问题来了，什么是基本旋转矩阵？同样是矩阵来表示旋转，为什么欧拉角只需要三个变量来表示？<br>首先我们来说，基本旋转矩阵是空间中，绕坐标系三个轴旋转的运动。我们假设在运动还未发生时，物体坐标系和惯性坐标系是重合的。记绕惯性坐标系z轴顺时针旋转（所有绕轴旋转的顺时针逆时针都表示将轴的方向正对眼睛时所看到的方向）$\alpha$为$z(\alpha)$,类似的其他两个轴为$x(\beta),y(\gamma)$。同理，绕物体坐标系三个轴的旋转记为$Z(\alpha),X(\beta),y(\gamma)$。事实上根据线性代数的相关理论，我们可以很快的计算出：</p>
+<script type="math/tex; mode=display">
+z(\alpha)= \begin{pmatrix}
+    \cos \alpha & \sin\alpha & 0 \\
+    -\sin \alpha & \cos\alpha & 0 \\
+    0 & 0 & 1\\
+\end{pmatrix},
+x(\beta)=\begin{pmatrix}
+    \cos \beta & 0 & \sin\beta \\
+    0 & 1 & 0 \\
+    -\sin\beta & 0 & \cos\beta \\
+\end{pmatrix},
+y(\gamma)=\begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & \cos \gamma  & \sin\beta \\
+    0 & -\sin\beta & \cos\beta \\
+\end{pmatrix},</script><p>而欧拉的意思就是，三维空间刚体旋转都可以由这三类旋转复合而成，而这三类旋转只由三个变量确定$(\alpha, \beta, \gamma)$，因为基本旋转矩阵的相乘不满足交换律，因此对按照何种顺序复合这三个矩阵没有明确的规定，事实上按照任意的顺序都可以，只要在事先最好规定即可。在本文中，我们规定欧拉角的复合顺序是$y(\gamma) \circ x(\beta) \circ z(\alpha)$。在这样的规定下，确定一个方位，也就是确定一个欧拉角，也就是确定一组角度值$(\alpha, \beta, \gamma)$。<br>其实讲到这里，欧拉所说的话的意思已经被完整的表述了。但是如果只了解到这里，在实际当中还是会碰到各种各样关于欧拉角的困惑。就我自己来说，我遇到的第一个困惑是关于欧拉角的另一个定义。我们知道上面的三个基本旋转矩阵都是根据惯性坐标系来定义，因此，由这三个旋转矩阵发生的旋转也都是关于惯性坐标系的轴发生的旋转，在旋转的过程中，物体的坐标系轴也发生了变化，因此往往根据这三个轴来旋转物体会导致我们失去物体与物体坐标轴的关系，它一样也不够直观。那么就有了另一个关于欧拉角的定义，在叙述这个定义前，先明确三个与角度相关的概念。</p>
+<ul>
+<li>俯仰角：物体绕自身$X$轴的旋转角度</li>
+<li>偏航角：物体绕自身$Y$轴的旋转角度</li>
+<li>滚筒角：物体绕自身$Z$轴的旋转角度</li>
+</ul>
+<div align=center> <img src="../pic/1-1.jpg"> </div>
+
+<p>有这三个角度概念叙述的另一个关于欧拉角的定义是：<br>欧拉角$(\alpha, \beta, \gamma)=Z(\gamma) \circ X(\beta) \circ Y(\alpha)$，也就是按照偏航，俯仰，滚筒的顺序进行的旋转过程。<br>要确定关于这个欧拉角所表示的旋转的矩阵就不像之前的那么容易，因为在旋转的过程中，$XYZ$轴都在发生变化。那么这样表示的旋转过程，还具有欧拉所说的性质吗？或者说，它还是真正的欧拉角吗？答案也是肯定的，事实上虽然一眼很难看出，但是其实这两种关于欧拉角的定义性质是完全相同，可以证明：</p>
+<script type="math/tex; mode=display">
+Z(\gamma) \circ X(\beta) \circ Y(\alpha) = y(\alpha) \circ x(\beta) \circ z(\gamma)</script><p>也就是说，两种定义下的旋转虽然是根据不同的轴进行的，但是事实上它们所代表的结果相同，只需满足旋转的顺序相反即可。因此无论是根据静态的惯性坐标轴旋转还是根据动态的物体坐标轴旋转，最终都可以转化为同一种定义形式。<br>在说清楚了上面两种定义之间的关系之后，可能以后又会发现另一个事实。欧拉所说的三个基本旋转矩阵的复合，并非一定要是三个不同旋转矩阵的复合，也可以包含两个相同类型的旋转矩阵，但是它们不能在复合当中相邻。在认清这一事实之后，若我们可以记一类欧拉角的定义为$xyz$，它表示的旋转顺序是$x \rightarrow y \rightarrow z$。所以一共有12类关于欧拉角的定义方式:$xyz, xzy, yxz, yzx, zxy, zyx, zxz, xzx, yxy, xyx, zyz, yzy$。又根据之前的讨论，这当中的每一类对应两种不同的等价定义。<br>至此，我们彻底了解了关于欧拉角表示方位的全部方式，可以来看一个关于欧拉角旋转的直观图片，它是根据zxz的物体坐标系顺序进行欧拉旋转的。       </p>
+<p><div align=center> <img src="../pic/1-2.webp"> </div><br>欧拉角虽然具有形式简单直观的性质，但是用欧拉角来表示方位有一个显而易见的缺陷。那就是不同方位的表示方式并不唯一。比如显然的在$zxz$定义下 和 是相同的。但这还是比较容易理解的形式，在另一种情况下可能会带来更复杂的问题——<a href="./欧拉角与万向节死锁.md">万向节死锁</a>，我们会在下一篇文章中详细介绍一下这个问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/15/%E6%96%B9%E4%BD%8D%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92/" data-id="ckbkh8xih00013kvw3mud10e2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/18/%E6%AC%A7%E6%8B%89%E8%A7%92%E4%B8%8E%E4%B8%87%E5%90%91%E8%8A%82%E6%AD%BB%E9%94%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          欧拉角与万向节死锁
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/25/effective%20C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">effective C++阅读笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/25/C++%20primer%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">C++ primer阅读笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/25/lue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">lue学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/18/%E6%AC%A7%E6%8B%89%E8%A7%92%E4%B8%8E%E4%B8%87%E5%90%91%E8%8A%82%E6%AD%BB%E9%94%81/">欧拉角与万向节死锁</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/15/%E6%96%B9%E4%BD%8D%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92/">方位与欧拉角</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 xiongdo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

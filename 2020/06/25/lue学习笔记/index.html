@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+
+  
+  <title>lue学习笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="lua首先是一门脚本语言，它是由解释器解释执行的，具有动态类型。它支持面向过程和函数式编程。并且通过闭包可以很方便的支持面向对象编程所需要的机制。lua学习地址，这个地址的lua教程感觉比较简略，没有把所有东西都说清楚，根据它先做一个入门吧。 lua基本语法数据类型lua中只有八种基本类型，分别是nil,boolean,number,strng,function,userdata,thread,t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lue学习笔记">
+<meta property="og:url" content="http://yoursite.com/2020/06/25/lue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="lua首先是一门脚本语言，它是由解释器解释执行的，具有动态类型。它支持面向过程和函数式编程。并且通过闭包可以很方便的支持面向对象编程所需要的机制。lua学习地址，这个地址的lua教程感觉比较简略，没有把所有东西都说清楚，根据它先做一个入门吧。 lua基本语法数据类型lua中只有八种基本类型，分别是nil,boolean,number,strng,function,userdata,thread,t">
+<meta property="og:locale" content="ch">
+<meta property="article:published_time" content="2020-06-25T07:25:38.980Z">
+<meta property="article:modified_time" content="2020-06-25T07:24:46.154Z">
+<meta property="article:author" content="xiongdo">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-lue学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/25/lue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-06-25T07:25:38.980Z" itemprop="datePublished">2020-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      lue学习笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>lua首先是一门脚本语言，它是由解释器解释执行的，具有动态类型。它支持面向过程和函数式编程。并且通过闭包可以很方便的支持面向对象编程所需要的机制。<a href="https://www.runoob.com/lua/lua-tutorial.html" target="_blank" rel="noopener">lua学习地址</a>，这个地址的lua教程感觉比较简略，没有把所有东西都说清楚，根据它先做一个入门吧。</p>
+<h1 id="lua基本语法"><a href="#lua基本语法" class="headerlink" title="lua基本语法"></a>lua基本语法</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>lua中只有八种基本类型，分别是nil,boolean,number,strng,function,userdata,thread,table。</p>
+<p>大多数类型和常接触的编程语言类似，其中nil表示没有任何有效值，类似python中的None。它只有一个值nil（虽然它是类型）。另外，因为lua支持函数式编程，函数也是lua的一种基本类型。userdata表示任意存储在变量中的C结构数据。thread是lua中的独立线程。table则是一个关联数组。</p>
+<p>lua中有一个函数type可以返回一个变量的类型的字符串。这当中要注意的是，因为nil是一个类型，所以比较一个变量是不是nil应该给nil加上引号。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(X)==<span class="string">"nil"</span></span><br></pre></td></tr></table></figure><br>nil在所有的条件表达式中均判断为false。</p>
+<p>boolean是lua中的布尔类型，lua中的条件判断只对false和nil判断为false，对其他所有值都判断为true，包括number 0。</p>
+<p>lua中的函数是“一等公民”，他可以直接保存在变量当中。同时lua中也可以定义匿名函数，传递给参数或者变量。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span><span class="params">(x)</span></span> <span class="comment">--直接定义</span></span><br><span class="line">    <span class="keyword">return</span> x+<span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">f = <span class="function"><span class="keyword">function</span><span class="params">(x)</span></span> <span class="comment">--匿名传递</span></span><br><span class="line">        <span class="keyword">return</span> x + <span class="number">1</span></span><br><span class="line">    <span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>lua中的线程thread是协同程序，在某一时刻只有一个线程被执行。这些线程拥有独立的堆栈，局部变量和指令指针，可以和其他协程共享全局变量等大多数内容。</p>
+<p>另外lua中的userdata可以用来表示用户自定义的数据，可以用来存储任意的C/C++的数据，例如指针或者struct。</p>
+<h2 id="lua变量"><a href="#lua变量" class="headerlink" title="lua变量"></a>lua变量</h2><p>lua中有是那种类型的变量：全局变量，局部变量，表（table）中的域。值得注意的时，lua中的变量若不带声明则都是全局可见的，如果要知名一个变量是局部的，需要在定义它前加上local声明。<br>有一个问题：lua中函数的形参是局部的还是全局的？</p>
+<h2 id="lua流程控制"><a href="#lua流程控制" class="headerlink" title="lua流程控制"></a>lua流程控制</h2><p>lua中也有循环和分支控制。其基本的语法并不复杂，不过有一点值得注意。</p>
+<p>但是lua中没有continue语句。可以使用repeat…until或者goto来实现。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--repeat实现</span></span><br><span class="line"><span class="keyword">for</span> i = <span class="number">10</span>, <span class="number">1</span>, <span class="number">-1</span> <span class="keyword">do</span></span><br><span class="line">  <span class="keyword">repeat</span> <span class="comment">--内层循环只执行一次，但是可以被跳出</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">5</span> <span class="keyword">then</span></span><br><span class="line">      <span class="built_in">print</span>(<span class="string">"continue code here"</span>)</span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="built_in">print</span>(i, <span class="string">"loop code here"</span>)</span><br><span class="line">  <span class="keyword">until</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--goto实现</span></span><br><span class="line"><span class="keyword">for</span> i = <span class="number">10</span>, <span class="number">1</span>, <span class="number">-1</span> <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="number">5</span> <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"continue code here"</span>)</span><br><span class="line">        <span class="keyword">goto</span> continue</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="built_in">print</span>(i, <span class="string">"loop code here"</span>)</span><br><span class="line">    ::continue::</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="lua函数"><a href="#lua函数" class="headerlink" title="lua函数"></a>lua函数</h2><p>lua中的函数定义时不需要指明返回的类型和数量，可以返回任意数量的值，同时lua的函数也支持接受任意数量的参数。</p>
+<p>lua中的函数传参性质值得注意，boolean，string， number作为参数时进行值传递，table等其他类型作为引用传递。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(...)</span></span> <span class="comment">--接受任意多个值</span></span><br><span class="line">    ret = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">ipairs</span>&#123;...&#125; <span class="keyword">do</span></span><br><span class="line">        ret = ret + v</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nextTwo</span><span class="params">(x)</span></span></span><br><span class="line">    <span class="keyword">return</span> x+<span class="number">1</span>, x+<span class="number">2</span> <span class="comment">--返回多个值</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="lua迭代器"><a href="#lua迭代器" class="headerlink" title="lua迭代器"></a>lua迭代器</h1><p>感觉教程中对lua迭代器的描述过于抽象了。在看过具体的例子之后，我感觉lua中的迭代器就是接受一个迭代函数和一系列迭代所需要的值的泛型。根据所需要的值的多少可以将迭代器分为无状态的迭代器，和有状态的迭代器。<br>在for…in exp1语句中 exp1是一个表达式，它需要返回一个迭代函数和一系列参数，for泛型默认的只能帮助我们保存两个参数，而通过使用闭包，我们可以保存循环所需要的任意多个值。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">5</span> <span class="keyword">then</span></span><br><span class="line">        x = x + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f <span class="keyword">do</span> <span class="comment">--f不接受任何参数的迭代函数</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">--结果为</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createIter</span><span class="params">(n)</span></span> <span class="comment">--创建一个执行n次的迭代器，每次返回的是第几次执行</span></span><br><span class="line">    <span class="keyword">local</span> index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">        index = index + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> index &lt;= n <span class="keyword">then</span></span><br><span class="line">            <span class="keyword">return</span> index</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> e <span class="keyword">in</span> createIter(<span class="number">5</span>) <span class="keyword">do</span> <span class="comment">--循环所需的状态都由闭包自己来保存了，不需要for泛型的帮助</span></span><br><span class="line">    <span class="built_in">print</span>(e)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">--结果为</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure><br>lua中的ipairs本质上是一个函数如下<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">iter</span><span class="params">(a, i)</span></span></span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line">    <span class="keyword">local</span> v = a[i]</span><br><span class="line">    <span class="keyword">if</span> v <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">return</span> i, v</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ipairs</span><span class="params">(a)</span></span></span><br><span class="line">    <span class="keyword">return</span> iter, a, <span class="number">0</span> <span class="comment">--返回迭代函数，控制变量，状态变量，并交由for泛型处理</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><br>在lua中pairs和ipairs存在区别，如上面的实现可以发现，ipairs只会对lua表中的数组部分进行遍历。而pairs会对表中所有存在的键值进行遍历。</p>
+<h1 id="lua-table"><a href="#lua-table" class="headerlink" title="lua table"></a>lua table</h1><p>table应该可以说是lua中最重要的一种数据类型，是lua中的主力，类似python中的list。</p>
+<h2 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h2><p>可以通过直接列表初始化创建表<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mytable = &#123;&#125; <span class="comment">--创建</span></span><br><span class="line">mytable[<span class="number">1</span>] = <span class="number">2</span> <span class="comment">--修改</span></span><br></pre></td></tr></table></figure><br>应该来说，lua中的table存储的都是键值对，但是在某些情况下，table的行为表现的像是数组。例如：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">array = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;</span><br><span class="line">array[<span class="number">1</span>] <span class="comment">--1 lua中的键值当不指定时是从1开始的</span></span><br><span class="line">array[<span class="number">2</span>] <span class="comment">--2</span></span><br></pre></td></tr></table></figure><br>这个时候其实array中保存的元素都是类似(1,1),(2,2),(3,3)…这样的键值对，但是支持类似数组的访问方式。<br>如果像这样创建一个table<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kv = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,key1=<span class="string">"hello"</span>,<span class="number">5</span>,<span class="number">6</span>,key2=<span class="string">"world"</span>&#125;</span><br><span class="line"></span><br><span class="line">kv[<span class="number">1</span>] <span class="comment">--1</span></span><br><span class="line">kv[<span class="number">5</span>] <span class="comment">--依然是5 它会略过key1这个键值</span></span><br><span class="line">kv[<span class="string">"key1"</span>] <span class="comment">--"hello"</span></span><br><span class="line">kv.key1 <span class="comment">--有建名称的也支持这么访问</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h2><p>删除一个table中的元素<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array[<span class="number">1</span>]=<span class="literal">nil</span> <span class="comment">--删除键值1和它所对应的元素</span></span><br></pre></td></tr></table></figure></p>
+<p>从某个位置插入table元素<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">table</span>.<span class="built_in">insert</span>(array, <span class="string">"hello"</span>) <span class="comment">--从末尾插入</span></span><br><span class="line"><span class="built_in">table</span>.<span class="built_in">insert</span>(array, <span class="number">2</span>, <span class="string">"world"</span>) <span class="comment">--在索引2处插入</span></span><br></pre></td></tr></table></figure></p>
+<p>table还有一个用来连接元素的函数table.concat，类似于python中的join。</p>
+<h1 id="lua元表"><a href="#lua元表" class="headerlink" title="lua元表"></a>lua元表</h1><p>lua的元表，其实是一个表中表。当我们创建一个表时，它默认是没有元表的。我们可以为一个table设置一个元表。使用setmetatable函数。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mytable = <span class="built_in">setmetatable</span>(&#123;&#125;,&#123;&#125;) <span class="comment">--函数返回设置了元表之后的表</span></span><br><span class="line">metatable = <span class="built_in">getmetatable</span>(mytable) <span class="comment">--返回mytable的元表引用，这样我们可以修改mytable的元表</span></span><br></pre></td></tr></table></figure><br>那么元表究竟有什么用呢，一个空的元表可能用处不大，lua定义了一些元表固定键名的作用。例如<strong>index, </strong>newindex, <strong>add, </strong>sub等等。<br>当一个表的元表具有<strong>index参数是，它控制了访问表中一些值得行为，简单来说，如果一个表没有某一个键，则会去查看</strong>index得值。如果<strong>index是一个表，则在这个表中查找这个键。如果index是一个函数，则调用这个函数，将表和键当作参数传入。<br>当一个表的元表具有</strong>newindex参数时，给一个表赋值时会调用<strong>newindex，而不是直接赋值。<br>当一个表有的元表</strong>call方法时，可以将这个表看作是函数调用其他值，其他值和表会作为参数传入这个函数。<br>另外还有一些定义了表之间操作的操作符。例如<strong>add,定义两个表相加时的行为。</strong>add定义两个表相减时的行为等等。</p>
+<h1 id="lua协同程序"><a href="#lua协同程序" class="headerlink" title="lua协同程序"></a>lua协同程序</h1><p>lua中的协同程序和线程类似，但是不同的地方在于它不能同时执行不同的线程。可以并发但不能并行。lua中的不同协程有自己的堆栈，局部变量，独立的指针，但是也共享一部分数据。例如全局变量。<br>创建协程时需要传入一个函数，以这个函数注册一个协程。coroutine.create可以用来完成这个工作。<br>教程中有一个很好的介绍线程创建与运行过程的例子<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">co2 = coroutine.<span class="built_in">create</span>(</span><br><span class="line">    <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">        <span class="keyword">for</span> i = <span class="number">1</span>,<span class="number">5</span> <span class="keyword">do</span></span><br><span class="line">            <span class="built_in">print</span>(i)</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">3</span> <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">print</span>(coroutine.<span class="built_in">status</span>(co2))</span><br><span class="line">                <span class="built_in">print</span>(coroutine.<span class="built_in">running</span>())</span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">            coroutine.<span class="built_in">yield</span>()</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">coroutine.<span class="built_in">resume</span>(co2)</span><br><span class="line">coroutine.<span class="built_in">resume</span>(co2)</span><br><span class="line">coroutine.<span class="built_in">resume</span>(co2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(coroutine.<span class="built_in">status</span>(co2))</span><br><span class="line"><span class="built_in">print</span>(coroutine.<span class="built_in">running</span>())</span><br><span class="line"></span><br><span class="line">coroutine.<span class="built_in">resume</span>(co2)</span><br><span class="line">coroutine.<span class="built_in">resume</span>(co2)</span><br><span class="line">coroutine.<span class="built_in">resume</span>(co2)</span><br><span class="line"><span class="built_in">print</span>(coroutine.<span class="built_in">status</span>(co2))</span><br><span class="line"><span class="built_in">print</span>(coroutine.<span class="built_in">running</span>())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--结果</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="built_in">running</span></span><br><span class="line">thread: <span class="number">008</span>dd2a4        <span class="literal">false</span></span><br><span class="line">suspended</span><br><span class="line">thread: <span class="number">008</span>d1744        <span class="literal">true</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">dead</span><br><span class="line">thread: <span class="number">008</span>d1744        <span class="literal">true</span></span><br></pre></td></tr></table></figure><br>可以看出，一个线程的的状态可以通过status获取。并且running表示它在运行中，suspended表示线程被挂起。yield可以用来挂起线程。当线程执行完毕时，它的状态是dead。running()可以获取当前正在执行的线程。</p>
+<h1 id="lua-文件IO"><a href="#lua-文件IO" class="headerlink" title="lua 文件IO"></a>lua 文件IO</h1><p>lua的文件IO分为简单模式和完全模式。其实它们的主要区别在于完全模式是一种面向对象的方式对打开的文件进行操作。将返回的文件对象记录下来，一次可以打开多个文件。而简单模式是一种状态机的方式，再一次设置一个文件作为io的输入，一个作为io的输出，在这样一种状态下，调用io接口进行操作。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="string">"test.lua"</span>, r) <span class="comment">--简单模式和完全模式打开文件的方式是一样的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--简单模式设置当前的io状态</span></span><br><span class="line"><span class="built_in">io</span>.<span class="built_in">input</span>(file) <span class="comment">--将file设置为输入文件</span></span><br><span class="line"><span class="built_in">io</span>.<span class="built_in">read</span>() <span class="comment">--返回test.lua的第一行</span></span><br><span class="line"><span class="built_in">io</span>.<span class="built_in">close</span>() <span class="comment">--关闭文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--完全模式</span></span><br><span class="line">file = <span class="built_in">io</span>.<span class="built_in">open</span>(<span class="string">"test2.lua"</span>, r)</span><br><span class="line">file:<span class="built_in">read</span>() <span class="comment">--调用返回对象的接口，将file看作是一个对象，读取一行</span></span><br><span class="line">file:<span class="built_in">close</span>() <span class="comment">--关闭file</span></span><br></pre></td></tr></table></figure><br>当然lua为file对象设置了更多其他的接口用来方便对文件进行访问，可以在使用时查阅。</p>
+<h1 id="lua错误处理"><a href="#lua错误处理" class="headerlink" title="lua错误处理"></a>lua错误处理</h1><p>lua中与错误处理相关的函数主要有assert,error,pcall,xpcall，debug。</p>
+<ul>
+<li>asset接受两个参数，当第一个参数可以看作true时他什么都不做，如果第一参数不满足，则将第二个参数作为错误信息抛出。</li>
+<li>error接受一个错误信息，终止正在执行的函数，并返回错误信息。</li>
+<li>pcall接受一个函数和一系列参数，以这一系列参数尝试调用函数，如果执行完毕则返回true，如果出现错误则返回false和错误信息。</li>
+<li>xpcall比pcall多接受一个函数，当出现错误时，lua会在栈展开前调用这个函数作为错误处理函数。</li>
+<li>debug是一个库，可以使用来获取一些关于错误的额外信息。</li>
+</ul>
+<h1 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h1><p>lua使用自动内存管理，不需要程序员去操心新创建的对象的内存如何分配以及如何释放。这主要得益于lua实现了一个垃圾收集器来收集所有不会被访问到的对象。<br>控制这个垃圾收集器可以使用两个参数：垃圾收集器间歇率和垃圾收集步进倍率。这两个数字都使用百分率作为单位。<br>垃圾手机间歇率控制垃圾收集在开启新的循环前等待的时间，增大这个值会让垃圾收集器的积极性降低。步进倍率控制收集器相对于内存分配速度的倍率，增大这个值会让垃圾收集器更加积极，他的默认值是200。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">collectgarbage</span>([opt[,<span class="built_in">arg</span>]])  <span class="comment">--调用这个函数实现垃圾收集器的各种操作，第一个参数是所要进行的操作的名称，第二个参数是可选的。</span></span><br></pre></td></tr></table></figure><br>opt可以是”collect”,”count”,”restart”,”setpause”,”setstepmul”,”step”,”stop”。set开头的两个操作代表对垃圾收集器的参数进行设置。</p>
+<h1 id="lua面向对象"><a href="#lua面向对象" class="headerlink" title="lua面向对象"></a>lua面向对象</h1><p>lua虽然不支持直接的类定义，但是可以使用table和function两个类型来模拟类型定义。<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 元类</span></span><br><span class="line">Rectangle = &#123;area = <span class="number">0</span>, length = <span class="number">0</span>, breadth = <span class="number">0</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 派生类的方法 new</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle:new</span> <span class="params">(o,length,breadth)</span></span></span><br><span class="line">  o = o <span class="keyword">or</span> &#123;&#125;</span><br><span class="line">  <span class="built_in">setmetatable</span>(o, self)</span><br><span class="line">  self.<span class="built_in">__index</span> = self</span><br><span class="line">  self.length = length <span class="keyword">or</span> <span class="number">0</span></span><br><span class="line">  self.breadth = breadth <span class="keyword">or</span> <span class="number">0</span></span><br><span class="line">  self.area = length*breadth;</span><br><span class="line">  <span class="keyword">return</span> o</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle:printArea</span><span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"矩形面积"</span>, self.area)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><br>这是教程中给的一个例子，但是这个例子似乎和普通的面向对象编程还是有一些区别。因为Rectangle元表中的所有属性都是类属性，在创建不同的对象之后，这些属性被这些对象共享，可以说是一个单例模式。例如这样使用<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">r1 = Rectangle:new(<span class="literal">nil</span>, <span class="number">10</span>,<span class="number">10</span>) <span class="comment">--此时r1.area返回100</span></span><br><span class="line">r2 = Rectangel:new(<span class="literal">nil</span>, <span class="number">20</span>, <span class="number">20</span>) <span class="comment">--此时r1和r2的area都是400</span></span><br></pre></td></tr></table></figure><br>考虑用另一种方式来定义类型<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 元类</span></span><br><span class="line">Rectangle = &#123;count = <span class="number">0</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 派生类的方法 new</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle:new</span> <span class="params">(o,length,breadth)</span></span></span><br><span class="line">  o = o <span class="keyword">or</span> &#123;&#125;</span><br><span class="line">  self.count = self.count + <span class="number">1</span></span><br><span class="line">  <span class="built_in">setmetatable</span>(o, self)</span><br><span class="line">  self.<span class="built_in">__index</span> = self</span><br><span class="line">  o.length = length</span><br><span class="line">  o.breadth = breadth</span><br><span class="line">  o.area = length * breadth</span><br><span class="line">  <span class="keyword">return</span> o</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 派生类的方法 printArea</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle:printArea</span><span class="params">()</span></span></span><br><span class="line">  <span class="built_in">print</span>(self.area)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">r1 = Rectangle:new(<span class="literal">nil</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">r2 = Rectangle:new(<span class="literal">nil</span>, <span class="number">20</span>, <span class="number">20</span>)</span><br><span class="line">r3 = Rectangle:new(<span class="literal">nil</span>, <span class="number">30</span>, <span class="number">30</span>)</span><br><span class="line">r1:printArea()         <span class="comment">--这几个打印的都是对象属性</span></span><br><span class="line">r2:printArea()</span><br><span class="line">r3:printArea()</span><br><span class="line"><span class="built_in">print</span>(Rectangle.count) <span class="comment">--类属性，当前创建了多少个变量</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">--结果为</span></span><br><span class="line"><span class="number">100</span></span><br><span class="line"><span class="number">400</span></span><br><span class="line"><span class="number">900</span></span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure><br>这样的方式和我所熟悉的类型比较相似。类属性被所有对象共享，而不同对象之间的属性又是独有的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/25/lue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="ckbugpvu5000164vw9h7c5cir" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/25/C++%20primer%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          C++ primer阅读笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/18/%E6%AC%A7%E6%8B%89%E8%A7%92%E4%B8%8E%E4%B8%87%E5%90%91%E8%8A%82%E6%AD%BB%E9%94%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">欧拉角与万向节死锁</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/25/effective%20C++%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">effective C++阅读笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/25/C++%20primer%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">C++ primer阅读笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/25/lue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">lue学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/18/%E6%AC%A7%E6%8B%89%E8%A7%92%E4%B8%8E%E4%B8%87%E5%90%91%E8%8A%82%E6%AD%BB%E9%94%81/">欧拉角与万向节死锁</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/15/%E6%96%B9%E4%BD%8D%E4%B8%8E%E6%AC%A7%E6%8B%89%E8%A7%92/">方位与欧拉角</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 xiongdo<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
